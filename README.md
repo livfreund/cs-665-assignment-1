@@ -1,30 +1,58 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Olivia Freund              |
+| Date         | 10/03/2026                 |
+| Course       | Fall CS665     	    |
+| Assignment # | 1                          |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+The objective of this assignment is to design and implement a fully automated beverage vending machine capable of preparing several types of coffee and tea beverages. The system must support Espresso, Americano, Latte Macchiato, Black Tea, Green Tea, and Yellow Tea while allowing customers to customize their beverages with milk and sugar, but no more than three of each. The use of a graphical interface is bypassed, the functionality of the system instead demonstrated and verified through JUnit tests.
+
+The implementation of this application focuses on creating a well-structured, maintainable, and easily extensible code base. Special attention was given to organizing responsibilities among classes, minimizing code duplication, and providing clear documentation to improve readability and future maintenance.
+
+### Assumptions
+
+Several assumptions were made during the design and implementation of the beverage vending machine:
+
+Every beverage has a predefined base price.
+Milk and sugar may be added to any beverage type.
+Customers may add between 0 and 3 units of milk to a beverage.
+Customers may add between 0 and 3 units of sugar to a beverage.
+Requests that exceed the maximum condiment limits result in an IllegalArgumentException.
+The system does not include a graphical user interface or command-line menu because the assignment specifies that functionality can be demonstrated through JUnit tests.
+Each unit of milk or sugar increases the beverage price by $0.50.
+Beverage creation and customization are handled by the vending machine controller class, which is responsible for enforcing all business rules.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/livfreund/cs-665-assignment-1
 
 # Implementation Description 
-
 
 For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+--> The implementation was designed with flexibility in mind by separating beverage creation from beverage behavior. The abstract Beverage class contains properties and methods that are shared among all beverage types, while the Coffee and Tea classes extend this functionality through inheritance. New beverage types can be added in the future by updating the BeverageType enumeration and adding the appropriate creation logic within the BeverageMachine class. Existing beverage types can also be removed with minimal impact on the overall system because the beverage creation process is centralized in one location. This approach reduces the amount of code that must be modified when requirements change and allows the application to evolve more easily over time.
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
-- Describe how you have avoided duplicated code and why it is important.
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
+--> The implementation was designed to be simple and easy to understand by giving each class a single, clearly defined responsibility. The Beverage class stores beverage information and common functionality, while the Coffee and Tea classes represent beverage categories. The BeverageMachine class is responsible for creating beverages and validating condiment quantities. The use of meaningful class names, method names, and documentation in the form of clearly defined DocBlocks makes the code easier to read and maintain. Because the responsibilities are clearly separated, future developers can quickly identify where modifications should be made without needing to understand the entire system.
 
+- Describe how you have avoided duplicated code and why it is important.
+--> Duplicate code was minimized through the use of inheritance. Common attributes such as beverage name, base price, milk units, and sugar units are stored in the abstract Beverage class rather than being repeated in multiple classes. The Beverage class was created as an abstract class because it serves as a template or blueprint for the subclasses, therefore effectivley reducing the amount of code that is duplicated in this implementation. Similarly, common methods such as addMilk(), addSugar(), and getPrice() are implemented once in the parent class and reused by all beverage types. Avoiding duplicate code is important because it improves maintainability, reduces the likelihood of introducing bugs, and makes updates easier. If a common behavior needs to be changed in the future, the modification can be made in a single location rather than in multiple classes throughout the application.
+
+- If applicable, mention any design patterns you have used and explain why they were
+chosen. 
+--> N/A
+
+## UML Diagram and Description
+
+The UML diagram for this assignment is included in the submitted zip file. 
+
+The UML diagram represents a simple object-oriented design for a beverage vending machine. The Main class serves as the entry point of the application and interacts with the BeverageMachine class. The BeverageMachine acts as the controller of the system, handling beverage creation and validating that milk and sugar quantities do not exceed the assignment limits. To determine which drink to create, the machine uses the BeverageType enumeration, which contains all supported beverage options: Espresso, Americano, Latte Macchiato, Black Tea, Green Tea, and Yellow Tea.
+
+The abstract Beverage class stores all properties and behaviors that are shared among beverages, including the beverage name, base price, milk units, sugar units, pricing calculations, and condiment methods. The Coffee and Tea classes inherit from Beverage, meaning they automatically receive these shared attributes and methods without duplicating code. This inheritance relationship promotes code reuse and makes the system easier to maintain. If new beverage categories are added in the future, they can extend the Beverage class and reuse the existing functionality, making the design flexible and easy to expand.
 
 # Maven Commands
 
