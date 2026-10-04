@@ -15,14 +15,14 @@ The implementation of this application focuses on creating a well-structured, ma
 
 Several assumptions were made during the design and implementation of the beverage vending machine:
 
-Every beverage has a predefined base price.
-Milk and sugar may be added to any beverage type.
-Customers may add between 0 and 3 units of milk to a beverage.
-Customers may add between 0 and 3 units of sugar to a beverage.
-Requests that exceed the maximum condiment limits result in an IllegalArgumentException.
-The system does not include a graphical user interface or command-line menu because the assignment specifies that functionality can be demonstrated through JUnit tests.
-Each unit of milk or sugar increases the beverage price by $0.50.
-Beverage creation and customization are handled by the vending machine controller class, which is responsible for enforcing all business rules.
+- Every beverage has a predefined base price.
+- Milk and sugar may be added to any beverage type.
+- Customers may add between 0 and 3 units of milk to a beverage.
+- Customers may add between 0 and 3 units of sugar to a beverage.
+- Requests that exceed the maximum condiment limits result in an IllegalArgumentException.
+- The system does not include a graphical user interface or command-line menu because the assignment specifies that functionality can be demonstrated through JUnit tests.
+- Each unit of milk or sugar increases the beverage price by $0.50.
+- Beverage creation and customization are handled by the vending machine controller class, which is responsible for enforcing all business rules.
 
 # GitHub Repository Link:
 https://github.com/livfreund/cs-665-assignment-1
